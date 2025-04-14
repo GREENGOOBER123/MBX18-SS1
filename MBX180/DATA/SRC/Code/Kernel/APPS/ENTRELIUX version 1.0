@@ -1,0 +1,30 @@
+[BITS 32]
+[ORG 0X7F00]
+include kernel
+include MDND
+Section .text
+	MAINPROG:
+		call Graphics_dealer
+		call ISR_KEYBOARD
+		call INIT_KEYBOARD
+		call CARD
+		mov SI, msg
+		mov ah , 0x0E
+		msg db , "Welcome to ENTRULIUX", 0
+		WRITE_FILE = DIR in
+		out DIRECTORY , FILE
+		in "FILENAME", 0
+		LDS FILENAME
+	MODDELING:
+		DB MODEL
+		MODIFY DATAPOINT, VERTEX
+		LODSB BYTE DATAPOINT
+		add or mul or div or sub, DATAPOINT_POS
+		LODS DATAPOINT
+		LEA DATAPOINT
+		LDS DATAPOINT
+		STOS MODEL
+		LOOP if Moddeling = 1
+	SaveFILE:
+		STOS MODEL
+Section end
