@@ -3,7 +3,7 @@ section .data
 prompt db '>', 0x00      ; Shell prompt
 buffer db 256            ; Buffer for user input (max 256 bytes)
 message db 128           ; Buffer for output
-dir db 'DIR:', 0x00      ; Sample directory message
+dir db 'C:/', 0x00      ; Sample directory message
 bootloader db 'Rebooting...', 0x00
 
 section .text
@@ -14,6 +14,7 @@ _start:
     mov ah, 0x0E         ; BIOS function for printing characters
     lea dx, [prompt]
     int 0x21             ; Call DOS interrupt
+	mov di 0,0
 
 read_command:
     ; Read command input from keyboard
@@ -56,5 +57,15 @@ Clear_handler:
 	call Clear
 MOVE_HANDLER:
 	call MOVE
-
+COMPILE_Handler:
+	call COMPILE
+SHKMODE:
+	%define SHELLUSER = user
+	%define SYSTEM , MOTHERBOARD
+	CALL (DOS)
+	%define DOSSHK = MSDOSSYSTEM
+	mov SHELLUSER, SYSTEM
+	mov si, MSG
+	mov ah, 0x0e
+	MSG DB , "Your System is running in SHKDOS" ,0
 section end
