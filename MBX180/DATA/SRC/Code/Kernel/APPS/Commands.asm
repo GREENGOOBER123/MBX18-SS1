@@ -1,6 +1,10 @@
 [BITS 32]
 DB Commands
 Section .text
+MAINDEFINE:
+	mov MAINDEFINE, SYSTEM
+	%include 'FILE SYSTEM.ASM':
+	%define DIR, FAT16
 echo:
 	in KEYBOARD ;takes input from KEYBOARD
 	mov si, command
@@ -12,6 +16,13 @@ Calc:
 	mov si, command
 	mov ah, 0x0E
 	Command out MATHAWNS
+START:
+	%define START_PROG in dx ax
+	in PROGRAM
+	call(PROGRAM)
+COMPILE:
+	%include 'Compiler.ASM'
+	call COMPILE
 Copy:
 	mul FILE = 2, FILE_1, FILE_2
 	mov FILE_2 , in
