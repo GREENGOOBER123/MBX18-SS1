@@ -1,3 +1,7 @@
+[BITS 32]
+[ORG 0x7F00]
+Section .text
+
 mov ah, 0x02        ; Function: Read sector(s)
 mov al, 1           ; Number of sectors to read
 mov ch, 0           ; Cylinder number
@@ -15,7 +19,12 @@ FileEntry:
     db 0x00           ; Attribute (read-only, hidden, etc.)
     dw 0x0002         ; Starting cluster (e.g., cluster #2)
     dd 0x00000400     ; File size (1 KB)
-
+APPS:
+	%define APPS ADDR 0x7F000
+	JE CHOOSER APPS, in si DX 1
+CHOOSER:
+	%define CHOSEN_APP in SI DX
+	CALL(CHOSEN_APP)
 ReadFile:
     mov si, FileEntry       ; Load file entry address
     mov ax, [si+12]         ; Get file size
@@ -27,3 +36,4 @@ ReadCluster:
 	int 0x13
     ; Increment cluster, adjust buffer, and repeat until done
     loop ReadCluster
+Section end
