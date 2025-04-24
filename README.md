@@ -5,5 +5,4 @@
 ## check it out
 ### please help me out to make this stuff
 ![LOGO OF project](./MBX18.gif)
-### Version 2 just  dropped, compressed binaries are there, i dont know if they work
-### ill test that later ok?
+# BEWARE OF SYSTEM SOFTWRE 10
