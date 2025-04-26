@@ -14,5 +14,5 @@
 # CASUAL MODE
 ## This mode will have a good little UI, im prototyping the Operating System as we Speak
 ### MAKECAB & MAKECOM
-[IDK](./MAKECAB.gif)
-[ewf](./MAKECOM.gif)
+![IDK](./MAKECAB.gif)
+![ewf](./MAKECOM.gif)
