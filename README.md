@@ -13,3 +13,4 @@
 ### From now on we are naming SS?? not SS??SHK, Cuz a new mode is coming out
 # CASUAL MODE
 ## This mode will have a good little UI, im prototyping the Operating System as we Speak
+### MAKECAB & MAKECOM
