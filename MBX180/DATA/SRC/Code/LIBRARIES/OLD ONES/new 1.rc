@@ -1,0 +1,8 @@
+BEGIN
+	EDITTEXT  "SHKMODE", "CASMODE"
+	ICON "MBX180.dat"
+	DIALOG "Do you want MBX18 Running in CASMODE?"
+	VEesiON "10.0 SHK, 1.0 CAS"
+	BUTTON "Casual"
+	CTEXT "Shell kernel mode"
+END
